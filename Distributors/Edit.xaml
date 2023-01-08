@@ -1,0 +1,46 @@
+﻿<Window x:Class="Distributors.Edit"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Distributors"
+        mc:Ignorable="d"
+        Title="Изменить существующую запись: поставщик" Height="Auto" Width="Auto" Icon="/Distributors;component/Логотип_НГТУ_НЭТИ.ico">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Dictionary.xaml"></ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="0" Grid.Column="0">Название</TextBlock>
+		<TextBox Name="nameInput" Style="{StaticResource CustomTextBox}" Grid.Row="0" Grid.Column="1"></TextBox>
+
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="1" Grid.Column="0">Адрес</TextBlock>
+		<TextBox Name="addressInput" Style="{StaticResource CustomTextBox}" Grid.Row="1" Grid.Column="1"></TextBox>
+
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="2" Grid.Column="0">Банк</TextBlock>
+		<ComboBox Name="bankInput" Style="{StaticResource CustomComboBox}" Grid.Row="2" Grid.Column="1"></ComboBox>
+
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="3" Grid.Column="0">Счёт в банке</TextBlock>
+		<TextBox Name="accountInput" Style="{StaticResource CustomTextBox}" Grid.Row="3" Grid.Column="1"></TextBox>
+
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="4" Grid.Column="0">ИНН</TextBlock>
+		<TextBox Name="innInput" Style="{StaticResource CustomTextBox}" Grid.Row="4" Grid.Column="1"></TextBox>
+
+		<Button Style="{StaticResource CustomButton}" Grid.Row="5" Grid.ColumnSpan="2" Click="Button_Click">Изменить</Button>
+	</Grid>
+</Window>

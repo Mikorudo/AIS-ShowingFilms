@@ -1,0 +1,54 @@
+﻿<Window x:Class="FilmScreenings.CreateNew"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FilmScreenings"
+        mc:Ignorable="d"
+        Title="Создать новую запись: демонстрация кинофильма" Height="Auto" Width="Auto" Icon="/FilmScreenings;component/Логотип_НГТУ_НЭТИ.ico">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Dictionary.xaml"></ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+			<RowDefinition/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="0" Grid.Column="0">Арендуемый кинофильм</TextBlock>
+		<ComboBox Name="filmInput" Style="{StaticResource CustomComboBox}" Grid.Row="0" Grid.Column="1"></ComboBox>
+
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="1" Grid.Column="0">Кинотеатр арендующий ленту</TextBlock>
+		<ComboBox Name="cinemaInput" Style="{StaticResource CustomComboBox}" Grid.Row="1" Grid.Column="1"></ComboBox>
+
+		<TextBlock Grid.Row="2" Style="{StaticResource CustomTextBlock}" Grid.Column="0">Дата начала демонстрации фильма</TextBlock>
+		<DatePicker Name="startDateInput" Style="{StaticResource CustomDatePicker}" Grid.Row="2" Grid.Column="1"></DatePicker>
+
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="3" Grid.Column="0">Дата окончания демонстрации фильма</TextBlock>
+		<DatePicker Name="endDateInput" Style="{StaticResource CustomDatePicker}" Grid.Row="3" Grid.Column="1"></DatePicker>
+
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="4" Grid.Column="0">Сумма оплаты за аренду ленты</TextBlock>
+		<TextBox Name="rentalPaymentInput" Style="{StaticResource CustomTextBox}" Grid.Row="4" Grid.Column="1"></TextBox>
+
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="5" Grid.Column="0">Пени за несвоевременный возврат</TextBlock>
+		<TextBox Name="penaltyInput" Style="{StaticResource CustomTextBox}" Grid.Row="5" Grid.Column="1"></TextBox>
+
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="6" Grid.Column="0">Возврат фильма</TextBlock>
+		<CheckBox Name="returnedInput" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="6" Grid.Column="1"></CheckBox>
+
+		<Button Style="{StaticResource CustomButton}" Grid.Row="7" Grid.ColumnSpan="2" Click="Button_Click">Создать</Button>
+	</Grid>
+</Window>

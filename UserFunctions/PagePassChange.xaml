@@ -1,0 +1,30 @@
+﻿<Page x:Class="UserFunctions.PagePassChange"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UserFunctions"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PagePassChange">
+	<Page.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Dictionary.xaml"></ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Page.Resources>
+	<Grid>
+		<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+			<TextBlock Style="{StaticResource CustomTextBlock}">Введите логин</TextBlock>
+			<TextBox Name="loginBox" Style="{StaticResource CustomTextBox}"></TextBox>
+			<TextBlock Style="{StaticResource CustomTextBlock}">Введите текущий пароль</TextBlock>
+			<PasswordBox Name="passBox" Style="{StaticResource CustomPassBox}"></PasswordBox>
+			<TextBlock Style="{StaticResource CustomTextBlock}">Введите новый пароль</TextBlock>
+			<PasswordBox Name="newPassBox" Style="{StaticResource CustomPassBox}"></PasswordBox>
+			<TextBlock Style="{StaticResource CustomTextBlock}">Введите новый пароль ещё раз</TextBlock>
+			<PasswordBox Name="newPassRepeatBox" Style="{StaticResource CustomPassBox}"></PasswordBox>
+			<Button Name="ChangePassB" Style="{StaticResource CustomButton}" Click="Button_Click">Изменить пароль</Button>
+		</StackPanel>
+	</Grid>
+</Page>

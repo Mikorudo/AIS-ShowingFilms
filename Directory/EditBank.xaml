@@ -1,0 +1,30 @@
+﻿<Window x:Class="Directory.EditBank"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Directory"
+        mc:Ignorable="d"
+        Title="Изменить существующую запись: банк" Height="auto" MinHeight="100" Width="auto" MinWidth="400" Icon="/Directory;component/Логотип_НГТУ_НЭТИ.ico">
+	<Window.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Dictionary.xaml"></ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Window.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+		<TextBlock Style="{StaticResource CustomTextBlock}" Grid.Row="0" Grid.Column="0">Название</TextBlock>
+		<TextBox Name="nameInput" Style="{StaticResource CustomTextBox}" Grid.Row="0" Grid.Column="1"></TextBox>
+
+		<Button Style="{StaticResource CustomButton}" Grid.Row="1" Grid.ColumnSpan="2" Click="Button_Click">Изменить</Button>
+	</Grid>
+</Window>

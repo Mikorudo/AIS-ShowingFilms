@@ -1,0 +1,37 @@
+﻿<Page x:Class="Directory.PageCategory"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Directory"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Категории">
+	<Page.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Dictionary.xaml"></ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</Page.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<TextBlock Style="{StaticResource CustomTextBlock}" HorizontalAlignment="Center" Text="Категории"/>
+		<TextBox Name="searchBox" Style="{StaticResource CustomTextBox}"  Grid.Row="1" HorizontalAlignment="Right" TextChanged="Search"></TextBox>
+		<DataGrid Grid.Row="2" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="False" IsEnabled="False" IsReadOnly="True" Margin="5" Name="DBgrid">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Название" Binding="{Binding CategoryName}" Width="*"></DataGridTextColumn>
+			</DataGrid.Columns>
+		</DataGrid>
+		<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+			<Button Name="CreateB" IsEnabled="False" Margin="5" Click="CreateB_Click" Template="{StaticResource CreateButton}" Style="{StaticResource CustomButton}"/>
+			<Button Name="EditB" IsEnabled="False" Margin="5" Click="EditB_Click" Template="{StaticResource EditButton}" Style="{StaticResource CustomButton}"/>
+			<Button Name="DeleteB" IsEnabled="False" Margin="5" Click="DeleteB_Click" Template="{StaticResource DeleteButton}" Style="{StaticResource CustomButton}"/>
+		</StackPanel>
+	</Grid>
+</Page>

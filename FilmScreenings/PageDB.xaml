@@ -1,0 +1,52 @@
+﻿<Page x:Class="FilmScreenings.PageDB"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:FilmScreenings"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Демонстрации кинофильмов">
+	<Page.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="Dictionary.xaml"></ResourceDictionary>
+			</ResourceDictionary.MergedDictionaries>
+			<local:FilmConverter x:Key="FilmConverter"/>
+			<local:CinemaConverter x:Key="CinemaConverter"/>
+			<local:BoolConverter x:Key="BoolConverter"/>
+		</ResourceDictionary>
+	</Page.Resources>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="Auto"/>
+			<RowDefinition Height="*"/>
+			<RowDefinition Height="Auto"/>
+		</Grid.RowDefinitions>
+		<TextBlock Style="{StaticResource CustomTextBlock}" HorizontalAlignment="Center" Text="Демонстрации кинофильмов"/>
+		<StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+			<ComboBox Name="searchMode" Style="{StaticResource CustomComboBox}" Width="auto" SelectionChanged="searchMode_SelectionChanged">
+				<ComboBoxItem IsSelected="True" Content="Поиск по названию фильма"/>
+				<ComboBoxItem Content="Поиск по названию кинотеатра"/>
+			</ComboBox>
+			<TextBox Name="searchBox" Style="{StaticResource CustomTextBox}" TextChanged="Search"></TextBox>
+		</StackPanel>
+		<DataGrid Grid.Row="2" VerticalScrollBarVisibility="Visible" AutoGenerateColumns="False" IsEnabled="False" IsReadOnly="True" Margin="5" Name="DBgrid">
+			<DataGrid.Columns>
+				<DataGridTextColumn Header="Кинофильм" Binding="{Binding Film, Converter={StaticResource FilmConverter}}"></DataGridTextColumn>
+				<DataGridTextColumn Header="Кинотеатр" Binding="{Binding Cinema, Converter={StaticResource CinemaConverter}}"></DataGridTextColumn>
+				<DataGridTextColumn Header="Дата начала демонстрации" Binding="{Binding StartScreeningDate, StringFormat=\{0:d\}}"></DataGridTextColumn>
+				<DataGridTextColumn Header="Дата окончания демонстрации" Binding="{Binding EndScreeningDate, StringFormat=\{0:d\}}"></DataGridTextColumn>
+				<DataGridTextColumn Header="Сумма арендной платы" Binding="{Binding RentalPaymentAmount}"></DataGridTextColumn>
+				<DataGridTextColumn Header="Пени за несвоевременный возврат" Binding="{Binding LateReturnPenalty}"></DataGridTextColumn>
+				<DataGridTextColumn Header="Возврат ленты" Binding="{Binding IsReturned, Converter={StaticResource BoolConverter}}"></DataGridTextColumn>
+			</DataGrid.Columns>
+		</DataGrid>
+		<StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+			<Button Name="CreateB" IsEnabled="False" Margin="5" Click="CreateB_Click" Template="{StaticResource CreateButton}" Style="{StaticResource CustomButton}"/>
+			<Button Name="EditB" IsEnabled="False" Margin="5" Click="EditB_Click" Template="{StaticResource EditButton}" Style="{StaticResource CustomButton}"/>
+			<Button Name="DeleteB" IsEnabled="False" Margin="5" Click="DeleteB_Click" Template="{StaticResource DeleteButton}" Style="{StaticResource CustomButton}"/>
+		</StackPanel>
+	</Grid>
+</Page>
